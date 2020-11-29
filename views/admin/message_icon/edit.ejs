@@ -1,0 +1,70 @@
+<% include ../index1.ejs %>
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Sửa lại</h1>
+<div class="card shadow mb-4">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="p-5">
+                <form class="user" action="/admin/message_icon/edit_create/<%= edit_employeeId.employeeId %>" method="post">
+                    <div class="form-group row">
+                        <div class="col-sm-2 mb-2 mb-sm-2">
+                            <p>Tên :</p>
+                        </div>
+                        <div class="col-sm-8 mb-8 mb-sm-8">
+                            <input type="text" class="form-control" name="name"
+                                   value="<%= edit_employeeId.name %>">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-2 mb-2 mb-sm-2">
+                            <p>Địa chỉ :</p>
+                        </div>
+                        <div class="col-sm-8 mb-8 mb-sm-8">
+                            <input type="text" class="form-control" name="address"
+                                   value="<%= edit_employeeId.address %>">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-2 mb-2 mb-sm-2">
+                            <p>Email :</p>
+                        </div>
+                        <div class="col-sm-8 mb-8 mb-sm-8">
+                            <input type="email" class="form-control" name="email"
+                                   value="<%= edit_employeeId.email %>">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-2 mb-2 mb-sm-2">
+                            <p>Phone :</p>
+                        </div>
+                        <div class="col-sm-8 mb-8 mb-sm-8">
+                            <input type="text" class="form-control" name="phone"
+                                   value="<%= edit_employeeId.phone %>">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-2 mb-2 mb-sm-2">
+                            <p>Ngày sinh :</p>
+                        </div>
+                        <div class="col-sm-8 mb-8 mb-sm-8">
+                            <input type="datetime-local" class="form-control" name="dob"
+                                   value="<%= edit_employeeId.dob %>">
+                        </div>
+                    </div>
+                    <div class="form-group row" >
+                        <div class="col-sm-2 mb-2 mb-sm-2"></div>
+                        <div class="col-sm-8 mb-8 mb-sm-8">
+                            <button type="submit" class="btn btn-primary btn-user">Sửa Lại</button>
+                            <a href="/admin/message_icon/">
+                                <button type="button" class="btn btn-success  btn-user ">Quay Lại</button>
+                            </a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<% include ../index2.ejs %>

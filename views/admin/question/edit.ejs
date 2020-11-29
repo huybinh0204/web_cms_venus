@@ -1,0 +1,42 @@
+<% include ../index1.ejs %>
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Sửa lại</h1>
+<div class="card shadow mb-4">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="p-5">
+                <form class="user" action="/admin/question/edit_create/<%= edit_question.departmentId %>" method="post">
+                    <div class="form-group row">
+                        <div class="col-sm-2 mb-2 mb-sm-2">
+                            <p>Bộ phận  :</p>
+                        </div>
+                        <div class="col-sm-8 mb-8 mb-sm-8">
+                            <input type="text" class="form-control" name="name" value="<%= edit_question.name	 %>"
+                                   placeholder="Bộ phận">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-2 mb-2 mb-sm-2">
+                            <p>Tên phòng ban :</p>
+                        </div>
+                        <div class="col-sm-8 mb-8 mb-sm-8">
+                            <input type="text" class="form-control" name="description" value="<%= edit_question.description %>"
+                                   placeholder="Tên phòng ban">
+                        </div>
+                    </div>
+                    <div class="form-group row" >
+                        <div class="col-sm-2 mb-2 mb-sm-2"></div>
+                        <div class="col-sm-8 mb-8 mb-sm-8">
+                            <button type="submit" class="btn btn-primary btn-user">Sửa Lại</button>
+                            <a href="/admin/question/">
+                                <button type="button" class="btn btn-success  btn-user ">Quay Lại</button>
+                            </a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<% include ../index2.ejs %>

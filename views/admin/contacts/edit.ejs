@@ -1,0 +1,225 @@
+<% include ../index1.ejs %>
+<head>
+    <script>
+        window.onload = function () {
+            var month1 = 0, month2 = 0, month3 = 0, month4 = 0, month5 = 0, month6 = 0, month7 = 0, month8 = 0,
+                month9 = 0, month10 = 0, month11 = 0, month12 = 0;
+            var checkInNo1 = 0, checkInNo2 = 0, checkInNo3 = 0, checkInNo4 = 0, checkInNo5 = 0, checkInNo6 = 0,
+                checkInNo7 = 0, checkInNo8 = 0, checkInNo9 = 0, checkInNo10 = 0, checkInNo11 = 0, checkInNo12 = 0;
+            var countDmvs1 = 0, countDmvs2 = 0, countDmvs3 = 0, countDmvs4 = 0, countDmvs5 = 0, countDmvs6 = 0,
+                countDmvs7 = 0, countDmvs8 = 0, countDmvs9 = 0, countDmvs10 = 0, countDmvs11 = 0, countDmvs12 = 0;
+            var notComplete1 = 0, notComplete2 = 0, notComplete3 = 0, notComplete4 = 0, notComplete5 = 0,
+                notComplete6 = 0, notComplete7 = 0, notComplete8 = 0, notComplete9 = 0, notComplete10 = 0,
+                notComplete11 = 0, notComplete12 = 0;
+            <% entities.forEach(function(item) { %>
+            if (Number("<%= item.month %>") == 1) {
+                month1 = Number("<%= item.notCheckInNo %>"); //ngay nghi
+                checkInNo1 = Number("<%= item.checkInNo %>"); //ngay chaam coong
+                countDmvs1 = Number("<%= item.countDmvs %>"); //ddi muoonj veef sowms
+                notComplete1 = Number("<%= item.notComplete %>"); //chuwa duyet
+            }
+            if (Number("<%= item.month %>") == 2) {
+                month2 = Number("<%= item.notCheckInNo %>"); //ngay nghi
+                checkInNo2 = Number("<%= item.checkInNo %>"); //ngay chaam coong
+                countDmvs2 = Number("<%= item.countDmvs %>"); //ddi muoonj veef sowms
+                notComplete2 = Number("<%= item.notComplete %>"); //chuwa duyet
+            }
+            if (Number("<%= item.month %>") == 3) {
+                month3 = Number("<%= item.notCheckInNo %>"); //ngay nghi
+                checkInNo3 = Number("<%= item.checkInNo %>"); //ngay chaam coong
+                countDmvs3 = Number("<%= item.countDmvs %>"); //ddi muoonj veef sowms
+                notComplete3 = Number("<%= item.notComplete %>"); //chuwa duyet
+            }
+            if (Number("<%= item.month %>") == 4) {
+                month4 = Number("<%= item.notCheckInNo %>"); //ngay nghi
+                checkInNo4 = Number("<%= item.checkInNo %>"); //ngay chaam coong
+                countDmvs4 = Number("<%= item.countDmvs %>"); //ddi muoonj veef sowms
+                notComplete4 = Number("<%= item.notComplete %>"); //chuwa duyet
+            }
+            if (Number("<%= item.month %>") == 5) {
+                month5 = Number("<%= item.notCheckInNo %>"); //ngay nghi
+                checkInNo5 = Number("<%= item.checkInNo %>"); //ngay chaam coong
+                countDmvs5 = Number("<%= item.countDmvs %>"); //ddi muoonj veef sowms
+                notComplete5 = Number("<%= item.notComplete %>"); //chuwa duyet
+            }
+            if (Number("<%= item.month %>") == 6) {
+                month6 = Number("<%= item.notCheckInNo %>"); //ngay nghi
+                checkInNo6 = Number("<%= item.checkInNo %>"); //ngay chaam coong
+                countDmvs6 = Number("<%= item.countDmvs %>"); //ddi muoonj veef sowms
+                notComplete6 = Number("<%= item.notComplete %>"); //chuwa duyet
+            }
+            if (Number("<%= item.month %>") == 7) {
+                month7 = Number("<%= item.notCheckInNo %>"); //ngay nghi
+                checkInNo7 = Number("<%= item.checkInNo %>"); //ngay chaam coong
+                countDmvs7 = Number("<%= item.countDmvs %>"); //ddi muoonj veef sowms
+                notComplete7 = Number("<%= item.notComplete %>"); //chuwa duyet
+            }
+            if (Number("<%= item.month %>") == 8) {
+                month8 = Number("<%= item.notCheckInNo %>"); //ngay nghi
+                checkInNo8 = Number("<%= item.checkInNo %>"); //ngay chaam coong
+                countDmvs8 = Number("<%= item.countDmvs %>"); //ddi muoonj veef sowms
+                notComplete8 = Number("<%= item.notComplete %>"); //chuwa duyet
+            }
+            if (Number("<%= item.month %>") == 9) {
+                month9 = Number("<%= item.notCheckInNo %>"); //ngay nghi
+                checkInNo9 = Number("<%= item.checkInNo %>"); //ngay chaam coong
+                countDmvs9 = Number("<%= item.countDmvs %>"); //ddi muoonj veef sowms
+                notComplete9 = Number("<%= item.notComplete %>"); //chuwa duyet
+            }
+            if (Number("<%= item.month %>") == 10) {
+                month10 = Number("<%= item.notCheckInNo %>"); //ngay nghi
+                checkInNo10 = Number("<%= item.checkInNo %>"); //ngay chaam coong
+                countDmvs10 = Number("<%= item.countDmvs %>"); //ddi muoonj veef sowms
+                notComplete10 = Number("<%= item.notComplete %>"); //chuwa duyet
+            }
+            if (Number("<%= item.month %>") == 11) {
+                month11 = Number("<%= item.notCheckInNo %>"); //ngay nghi
+                checkInNo11 = Number("<%= item.checkInNo %>"); //ngay chaam coong
+                countDmvs11 = Number("<%= item.countDmvs %>"); //ddi muoonj veef sowms
+                notComplete11 = Number("<%= item.notComplete %>"); //chuwa duyet
+            }
+            if (Number("<%= item.month %>") == 12) {
+                month12 = Number("<%= item.notCheckInNo %>"); //ngay nghi
+                checkInNo12 = Number("<%= item.checkInNo %>"); //ngay chaam coong
+                countDmvs12 = Number("<%= item.countDmvs %>"); //ddi muoonj veef sowms
+                notComplete12 = Number("<%= item.notComplete %>"); //chuwa duyet
+            }
+            <% }); %>
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                title: {
+                    text: "Biểu đồ chấm công theo tháng",
+                    fontFamily: "arial black",
+                    fontColor: "#695A42"
+                },
+                axisX: {
+                    interval: 1,
+                    intervalType: "year"
+                },
+                axisY: {
+                    valueFormatString: "#0",
+                    gridColor: "#B6B1A8",
+                    tickColor: "#B6B1A8"
+                },
+                toolTip: {
+                    shared: true,
+                    content: toolTipContent
+                },
+                data: [{
+                    type: "stackedColumn",
+                    showInLegend: true,
+                    color: "#ddb288",
+                    name: "Ngay nghi",
+                    dataPoints: [
+                        {y: month1, x: 1},
+                        {y: month2, x: 2},
+                        {y: month3, x: 3},
+                        {y: month4, x: 4},
+                        {y: month5, x: 5},
+                        {y: month6, x: 6},
+                        {y: month7, x: 7},
+                        {y: month8, x: 8},
+                        {y: month9, x: 9},
+                        {y: month10, x: 10},
+                        {y: month11, x: 11},
+                        {y: month12, x: 12},
+                    ]
+                }, {
+                    type: "stackedColumn",
+                    showInLegend: true,
+                    name: "Q2",
+                    color: "#3f5bac",
+                    dataPoints: [
+                        {y: checkInNo1, x: 1},
+                        {y: checkInNo2, x: 2},
+                        {y: checkInNo3, x: 3},
+                        {y: checkInNo4, x: 4},
+                        {y: checkInNo5, x: 5},
+                        {y: checkInNo6, x: 6},
+                        {y: checkInNo7, x: 7},
+                        {y: checkInNo8, x: 8},
+                        {y: checkInNo9, x: 9},
+                        {y: checkInNo10, x: 10},
+                        {y: checkInNo11, x: 11},
+                        {y: checkInNo12, x: 12},
+                    ]
+                },
+                    {
+                        type: "stackedColumn",
+                        showInLegend: true,
+                        name: "Q2",
+                        color: "#940e3e",
+                        dataPoints: [
+                            {y: countDmvs1, x: 1},
+                            {y: countDmvs2, x: 2},
+                            {y: countDmvs3, x: 3},
+                            {y: countDmvs4, x: 4},
+                            {y: countDmvs5, x: 5},
+                            {y: countDmvs6, x: 6},
+                            {y: countDmvs7, x: 7},
+                            {y: countDmvs8, x: 8},
+                            {y: countDmvs9, x: 9},
+                            {y: countDmvs10, x: 10},
+                            {y: countDmvs11, x: 11},
+                            {y: countDmvs12, x: 12},
+                        ]
+                    },
+                    {
+                        type: "stackedColumn",
+                        showInLegend: true,
+                        name: "Q2",
+                        color: "#1dba9b",
+                        dataPoints: [
+                            {y: notComplete1, x: 1},
+                            {y: notComplete2, x: 2},
+                            {y: notComplete3, x: 3},
+                            {y: notComplete4, x: 4},
+                            {y: notComplete5, x: 5},
+                            {y: notComplete6, x: 6},
+                            {y: notComplete7, x: 7},
+                            {y: notComplete8, x: 8},
+                            {y: notComplete9, x: 9},
+                            {y: notComplete10, x: 10},
+                            {y: notComplete11, x: 11},
+                            {y: notComplete12, x: 12},
+                        ]
+                    },
+                ]
+            });
+            chart.render();
+
+            function toolTipContent(e) {
+                var str = "";
+                var total = 0;
+                var str2, str3;
+                for (var i = 0; i < e.entries.length; i++) {
+                    var str1 = "<span style= \"color:" + e.entries[i].dataSeries.color + "\"> " + e.entries[i].dataSeries.name + "</span>: $<strong>" + e.entries[i].dataPoint.y + "</strong>bn<br/>";
+                    total = e.entries[i].dataPoint.y + total;
+                    str = str.concat(str1);
+                }
+                str2 = "<span style = \"color:DodgerBlue;\"><strong>" + (e.entries[0].dataPoint.x).getFullYear() + "</strong></span><br/>";
+                total = Math.round(total * 100) / 100;
+                str3 = "<span style = \"color:Tomato\">Total:</span><strong> $" + total + "</strong>bn<br/>";
+                return (str2.concat(str)).concat(str3);
+            }
+
+        }
+    </script>
+</head>
+<div class="card shadow mb-4">
+
+    <div class="col-sm-12 mb-12 mb-sm-12">
+        <h2 class="h3 mb-2 text-gray-800" ><%= entities.employeeName %></h2>
+        <div class="col-sm-8 mb-8 mb-sm-8">
+            <div class="card-body">
+                <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<% include ../index2.ejs %>
+
+

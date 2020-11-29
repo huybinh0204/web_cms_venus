@@ -1,0 +1,55 @@
+<% include ../index1.ejs %>
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800"><%= title %></h1>
+<div>
+    <a href="/admin/admin/add">
+        <button type="button" class="btn btn-primary  btn-user ">Thêm mới</button>
+    </a>
+</div>
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Ảnh</th>
+                    <th>Tên tài khoản</th>
+                    <th>Hành động</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th>STT</th>
+                    <th>Ảnh</th>
+                    <th>Tên tài khoản</th>
+                    <th>Hành động</th>
+                </tr>
+                </tfoot>
+                <tbody>
+                <% adminn.forEach(function(item) { %>
+                    <tr>
+                        <td><%= item.id %></td>
+                        <td><%= item.link_avatar %></td>
+                        <td><%= item.username %></td>
+                        <td><a href="/admin/admin/edit/<%= item.id %>"><button type="button" class="btn btn-info  btn-user ">Sửa</button></a></form>
+                            <a href="javascript:void(0);" onclick="confirmDelete('/admin/admin/delete/<%= item.id %>','<%= item.username %>')"
+                               class="bt"><button type="button" class="btn btn-danger  btn-user ">Xóa</button></a>
+                        </td>
+                    </tr>
+                <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<% include ../index2.ejs %>
+<script>
+    function confirmDelete(url, catename) {
+        var conf = confirm(`Bạn có muốn xóa phòng ban? ${catename}`);
+        if (conf == true) {
+            window.location.href = url;
+        }
+    }
+
+</script>
