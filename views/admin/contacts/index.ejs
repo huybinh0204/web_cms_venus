@@ -1,9 +1,10 @@
 <% include ../index1.ejs %>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <head>
     <script>
         window.onload = function () {
-        var a = Number("<%= baocao.totalCheckInNo %>");
-        var b = Number("<%= baocao.totalNotCheckInNo %>");
+            var a = Number("<%= baocao.totalCheckInNo %>");
+            var b = Number("<%= baocao.totalNotCheckInNo %>");
             var chart = new CanvasJS.Chart("chartContainer", {
                 theme: "light2",
                 animationEnabled: true,
@@ -46,90 +47,136 @@
 <h1 class="h3 mb-2 text-gray-800"><%= title %></h1>
 <div>
 </div>
+
 <div class="card shadow mb-4">
     <div class="card-body">
         <div class="table-responsive">
             <div class="col-sm-12 mb-12 mb-sm-12">
-                <form class="user" action="/admin/contacts/reportDepartment/"
-                      method="post">
-                    <div class="form-group row">
-                        <div class="col-sm-3 mb-3 mb-sm-3">
-                            <div class="form-group row">
-                                <div class="col-sm-4 mb-4 mb-sm-4">
-                                    <p>Thời gian :</p>
-                                </div>
-                                <div class="col-sm-8 mb-8 mb-sm-8">
-                                    <input type="date" class="form-control" name="name"
-                                           placeholder="Bộ phận">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-4 mb-4 mb-sm-4">
-                                    <p>Bộ phận :</p>
-                                </div>
-                                <div class="col-sm-8 mb-8 mb-sm-8 p-10">
-                                    <select data-placeholder="Choose a Country..."
-                                            style="padding: 5px; border-color:#d0cece;border-radius: 5px"
-                                            class="col-sm-12 mb-12 mb-sm-12" tabindex="1">
-                                        <% questionk.forEach(function(item) { %>
-                                            <option value="<%= item.name %>" label="<%= item.name %>"></option>
-                                        <% }); %>
+                <div class="form-group row">
 
-                                    </select>
-                                </div>
+                    <div class="col-sm-4 mb-4 mb-sm-4">
+                        <!--                        <form class="user" -->
+                        <!--                              method="post">-->
+                        <div class="form-group row">
+                            <div class="col-sm-4 mb-4 mb-sm-4">
+                                <p>Thời gian :</p>
                             </div>
-                            <div class="form-group row">
-                                <div class="col-sm-4 mb-4 mb-sm-4"></div>
-                                <div class="col-sm-8 mb-8 mb-sm-8">
-                                    <button type="submit" class="btn btn-primary btn-user">Tìm kiếm</button>
-                                </div>
+                            <div class="col-sm-8 mb-8 mb-sm-8">
+                                <input type="text" class="form-control" id="year" name="year" maxlength="7"
+                                        value="<%= month+"-"+year%>">
                             </div>
                         </div>
-                        <div class="col-sm-8 mb-8 mb-sm-8">
-                            <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                        <div class="form-group row">
+                            <div class="col-sm-4 mb-4 mb-sm-4">
+                                <p>Bộ phận :</p>
+                            </div>
+                            <div class="col-sm-8 mb-8 mb-sm-8 p-10">
+                                <select data-placeholder="Choose a Country..."
+                                        id="departmentId" name="departmentId"
+                                        style="padding: 5px; border-color:#d0cece;border-radius: 5px"
+                                        class="col-sm-12 mb-12 mb-sm-12" tabindex="1">
+                                    <% questionk.forEach(function(item) { %>
+                                        <option value="<%= item.departmentId %>" label="<%= item.name %>"></option>
+                                    <% }); %>
+
+                                </select>
+                            </div>
                         </div>
+                        <div class="form-group row">
+                            <div class="col-sm-4 mb-4 mb-sm-4"></div>
+                            <div class="col-sm-8 mb-8 mb-sm-8">
+                                <button type="submit" id="showTxt" class="btn btn-primary btn-user">Tìm kiếm
+                                </button>
+                            </div>
+                        </div>
+                        <!--                        </form>-->
                     </div>
-                </form>
 
-            </div>
-            <div class="col-sm-12 mb-12 mb-sm-12">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                    <tr>
-                        <th>Tên</th>
-                        <th>Ngày nghỉ</th>
-                        <th>Ngày đi làm</th>
-                        <th>Hành động</th>
-                    </tr>
-                    </thead>
-                    <tfoot>
-                    <tr>
-                        <th>Tên</th>
-                        <th>Ngày nghỉ</th>
-                        <th>Ngày đi làm</th>
-                        <th>Hành động</th>
-                    </tr>
-                    </tfoot>
-                    <tbody>
-                    <% lstEmployee.forEach(function(item) { %>
+                    <div class="col-sm-8 mb-8 mb-sm-8">
+                        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="col-sm-12 mb-12 mb-sm-12">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
                         <tr>
-                            <td><%= item.employeeName %></td>
-                            <td><%= item.checkInNo %></td>
-                            <td><%= item.notCheckInNo %></td>
-                            <td><a href="/admin/contacts/edit/<%= item.employeeId %>">
-                                    <button type="button" class="btn btn-info  btn-user ">Chi tiết</button>
-                                </a></form>
-                            </td>
+                            <th>Tên</th>
+                            <th>Ngày nghỉ</th>
+                            <th>Ngày đi làm</th>
+                            <th>Hành động</th>
                         </tr>
-                    <% }); %>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>Tên</th>
+                            <th>Ngày nghỉ</th>
+                            <th>Ngày đi làm</th>
+                            <th>Hành động</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        <% lstEmployee.forEach(function(item) { %>
+                            <tr>
+                                <td><%= item.employeeName %></td>
+                                <td><%= item.checkInNo %></td>
+                                <td><%= item.notCheckInNo %></td>
+                                <td><a href="/admin/contacts/edit/<%= item.employeeId %>">
+                                        <button type="button" class="btn btn-info  btn-user ">Chi tiết</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        <% }); %>
+                        </tbody>
 
+                    </table>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>
-<!--<div id="chartContainer" style="height: 370px; width: 100%;">-->
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-<!--</div>-->
+<script>
+
+    (function () {
+        // get references to select list and display text box
+        var sel = document.getElementById('departmentId');
+        var _year = document.getElementById('year');
+
+        var url = "/admin/contacts/"
+        document.getElementById('showTxt').onclick = function () {
+            sel.value;
+            // window.location.href = url + sel.value;
+            var year = _year.value;
+
+            console.log("year",year)
+            if (year ==  ''){
+                window.location.href = url + sel.value;
+            }else {
+                var bis_month = year.slice(0,1);
+                var ais_month = year.slice(1,2);
+                var is_month = year.slice(0,2);
+                var is_year = year.slice(3,7);
+                console.log("111",is_month)
+                console.log("123",is_year)
+                if (bis_month < 2 && ais_month < 3){
+                    var month_year = is_month +"-"+is_year;
+                    window.location.href = url + sel.value+"/"+month_year;
+                }else if (bis_month < 10  || ais_month < 10) {
+                     var a = "0"+is_month;
+                    var month_year = "0"+a +"-"+is_year;
+                    window.location.href = url + sel.value+"/"+month_year;
+                }else {
+                    var a = "0"+is_month;
+                    var month_year = "0"+a +"-"+is_year;
+                    window.location.href = url + sel.value+"/"+month_year;
+                }
+
+            }
+
+        }
+
+
+    }());
+</script>
+
 <% include ../index2.ejs %>

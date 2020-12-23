@@ -94,7 +94,8 @@
                 },
                 axisX: {
                     interval: 1,
-                    intervalType: "year"
+                    intervalType: "year",
+
                 },
                 axisY: {
                     valueFormatString: "#0",
@@ -108,8 +109,8 @@
                 data: [{
                     type: "stackedColumn",
                     showInLegend: true,
-                    color: "#ddb288",
-                    name: "Ngay nghi",
+                    color: "#FC6E61",
+                    name: "Ngày nghỉ",
                     dataPoints: [
                         {y: month1, x: 1},
                         {y: month2, x: 2},
@@ -127,8 +128,8 @@
                 }, {
                     type: "stackedColumn",
                     showInLegend: true,
-                    name: "Q2",
-                    color: "#3f5bac",
+                    name: "Ngày công",
+                    color: "#A0D468",
                     dataPoints: [
                         {y: checkInNo1, x: 1},
                         {y: checkInNo2, x: 2},
@@ -147,8 +148,8 @@
                     {
                         type: "stackedColumn",
                         showInLegend: true,
-                        name: "Q2",
-                        color: "#940e3e",
+                        name: "Đi muộn về sớm",
+                        color: "#008ae6",
                         dataPoints: [
                             {y: countDmvs1, x: 1},
                             {y: countDmvs2, x: 2},
@@ -167,8 +168,8 @@
                     {
                         type: "stackedColumn",
                         showInLegend: true,
-                        name: "Q2",
-                        color: "#1dba9b",
+                        name: "Công chưa duyệt",
+                        color: "#ff9966",
                         dataPoints: [
                             {y: notComplete1, x: 1},
                             {y: notComplete2, x: 2},
@@ -193,28 +194,29 @@
                 var total = 0;
                 var str2, str3;
                 for (var i = 0; i < e.entries.length; i++) {
-                    var str1 = "<span style= \"color:" + e.entries[i].dataSeries.color + "\"> " + e.entries[i].dataSeries.name + "</span>: $<strong>" + e.entries[i].dataPoint.y + "</strong>bn<br/>";
+                    var str1 = "<span style= \"color:" + e.entries[i].dataSeries.color + "\"> " + e.entries[i].dataSeries.name + "</span>: $<strong>" + e.entries[i].dataPoint.y + "</strong>ngày<br/>";
                     total = e.entries[i].dataPoint.y + total;
                     str = str.concat(str1);
                 }
-                str2 = "<span style = \"color:DodgerBlue;\"><strong>" + (e.entries[0].dataPoint.x).getFullYear() + "</strong></span><br/>";
+                str2 = "<span style = \"color:DodgerBlue;\"><strong>" + "</strong></span><br/>";
                 total = Math.round(total * 100) / 100;
-                str3 = "<span style = \"color:Tomato\">Total:</span><strong> $" + total + "</strong>bn<br/>";
+                str3 = "<span style = \"color:Tomato\">Tổng:</span><strong> $" + total + "</strong>ngày<br/>";
                 return (str2.concat(str)).concat(str3);
             }
 
         }
     </script>
 </head>
+<h3 class="h3 mb-2 text-gray-800" >Nhân viên : <%= entities[0].employeeName %></h3>
 <div class="card shadow mb-4">
-
     <div class="col-sm-12 mb-12 mb-sm-12">
-        <h2 class="h3 mb-2 text-gray-800" ><%= entities.employeeName %></h2>
-        <div class="col-sm-8 mb-8 mb-sm-8">
+        <div class="col-sm-2 mb-2 mb-sm-2" style="float: left"> </div>
+        <div class="col-sm-8 mb-8 mb-sm-8" style="float: left">
             <div class="card-body">
-                <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                <div id="chartContainer" style=" height: 500px; width: 100%;"></div>
             </div>
         </div>
+
 
     </div>
 
